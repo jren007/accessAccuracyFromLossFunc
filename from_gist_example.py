@@ -62,7 +62,7 @@ class Model:
     @define_scope
     def optimize(self):
         current_error=self.error
-        logprob = tf.log(self.prediction + 1e-12) *(1-current_error)
+        logprob = tf.log(self.prediction + 1e-12) *(1-current_error)  #Here changed ????????????
 
         cross_entropy = -tf.reduce_sum(self.label * logprob)
         optimizer = tf.train.RMSPropOptimizer(0.03)
