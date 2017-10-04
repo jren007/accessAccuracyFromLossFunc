@@ -1,5 +1,4 @@
-# Working example for my blog post at:
-# https://danijar.github.io/structuring-your-tensorflow-models
+
 import functools
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
