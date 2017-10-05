@@ -20,7 +20,7 @@ def bcost(cost_value):
 
 train_op = tf.train.AdamOptimizer().minimize(cost)
 train_op2 = tf.train.AdamOptimizer().minimize(acost(-0.5))
-train_op3 = tf.train.AdamOptimizer().minimize(acost(cost_value))
+train_op3 = tf.train.AdamOptimizer().minimize(bcost(cost_value))
 sess = tf.Session()
 init = tf.global_variables_initializer()
 sess.run(init)
@@ -28,7 +28,7 @@ for i in range(100):
     for (xi, yi) in zip(x, y):
     #  sess.run(train_op, feed_dict={X: xi, Y: yi})
     _, cost_value = sess.run([train_op2, cost], feed_dict={X: xi, Y: yi})
-    #  _, cost_value = sess.run([train_op2, cost], feed_dict={X: xi, Y: yi})
+    #  _, cost_value = sess.run([train_op3, bcost], feed_dict={X: xi, Y: yi})
     # print(tf.float32(sess.run(cos)))
 
 print(sess.run(w), sess.run(b))
